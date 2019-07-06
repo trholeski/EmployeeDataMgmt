@@ -1,45 +1,70 @@
-$(document).ready(function(){
-//defining some global variables that will be used as the placeholder of user input.
-var search 
-var numberOfRecords 
-var startYear
-var endYear
-var key = "mFOHoR2tOylWqAA7pUS0mjkNpgXdMziR"
-var queryURL
+ console.log('hello');
+ 
 
-//when the user clicks "submit query" button, the global variables defined above are redefined to the respective user input. queryURL is also redefined to be the full api url.
-$("#submitSearch").on("click", function(){
-    search = $("#searchInput").val();
-    numberOfRecords = $("#recordNum").val();
-    console.log(numberOfRecords);
-    startYear = $("#startYear").val();
-    endYear = $("#endYear").val();
-    queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + key + "&q=" + search + "&begin_date=" + startYear + "0101&end_date=" + endYear + "1231"
-    console.log(queryURL);
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response) {
-        console.log(response);
-        console.log(response.response.docs)
-        var results = response.response.docs;
-        for(var i = 0; i<numberOfRecords; i++) {
-            var div = $("<div class=card>");
-            // var p = $("<p>");
-            // var headline = p.html("Headline: " + results[i].headline.main);
-            // var link = p.html("Link: " + results[i].web_url);
-            // var abstract = p.html("Abstract: " + results[i].abstract);
-            // div.append(headline);
-            // div.append(link);
-            // div.append(abstract);
-             div.append("<p> Head Line: "+ results[i].headline.main+"</p>");
-             div.append("<p>Web URL: "+ results[i].web_url+"</p>");
-             div.append("<p>Abstract: "+ results[i].abstract+"</p>");
-            $("#results").prepend(div);
-        }
-    });
+var config = {
+    apiKey: "AIzaSyAJS4YQWU5DmESeYueG1qH1NGkjv3DncEY",
+    authDomain: "fir-click-counter-7cdb9.firebaseapp.com",
+    databaseURL: "https://fir-click-counter-7cdb9.firebaseio.com",
+    storageBucket: "fir-click-counter-7cdb9.appspot.com"
+};
+
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
+function launch(){
+if (snapshot.child("newEmployee").exists()) {
+
+    // Set the variables for highBidder/highPrice equal to the stored values in firebase.
+    highPrice = parseInt(snapshot.val().highPrice);
+    highBidder = snapshot.val().highBidder;
+
+    // Change the HTML to reflect the stored values
+    $('#highest-bidder').text(highBidder);
+    $('#highest-price').text(highPrice);
+
+    // Print the data to the console.
+    console.log(highBidder, highPrice);
+}
+
+ $('#submit').on('click', function(){
+     event.preventDefault();
+     console.log("in function");
+    var name = $('#name').val().trim();
+    var role = $('#role').val().trim();
+    var startDate = $('#startDate').val().trim();
+    var monthlyRate = $('#monthlyRate').val().trim();
+    var monthsWorked = 10
+    var totalBilled = monthsWorked * monthlyRate;
+    var newRow = $('<tr>');
+    newRow.append(
+        '<td>' + name + '</td>' +
+        '<td>' + role + '</td>' +
+        '<td>' + startDate + '</td>' +
+        '<td>'+ monthsWorked +'</td>' +
+        '<td>' + monthlyRate + '</td>' +
+        '<td>' + totalBilled + '</td>' 
+        );
+
+        var newEmployee = database.ref().push({
+            name: name,
+            role: role,
+            startDate: firebase.database.ServerValue.TIMESTAMP, 
+            monthlyRate: monthlyRate
+        });
+        newEmployee.set ({
+        })
+        database.ref().on("child_added", function(snapshot) {
+            console.log(snapshot);
+        })
+    
+    $('#schedule').append(newRow);
+
+    // var newData = $('<td>');
+    // $(newData).append(name);
+
+    
+
+    // console.log(name);
+
 });
-
-});
-
-

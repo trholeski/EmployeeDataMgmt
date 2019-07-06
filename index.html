@@ -8,13 +8,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Employee Tracker</title>
    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  
+    <!-- Firebase References -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+  
 </head>
 <body>
 <div id="pageContent">
 <div class="jumbotron jumbotron-fluid" id="background">
   <div class="container">
     <h1 class="display-4">Employee Data Management</h1>
-    <p class="lead">A Comprehensice Directory of Billable Hours</p>
+    <p class="lead">A Comprehensive Directory of Billable Hours</p>
   </div>
 </div>
 <table class="table table-sm" id=schedule>Current Employees 
@@ -44,26 +54,26 @@
                      <div class="card-body">
                 <form>
                     <div class="form-group">
-                        <label for="searchTerm">Employee Name</label>
-                        <input class="form-control" id="searchTerm">
+                        <label for="name">Employee Name</label>
+                        <input class="form-control" id="name">
                     </div>
                     <div class="form-group">
-                        <label for="recordsNumber">Role</label>
-                        <input class="form-control" id="recordsNumber">
+                        <label for="role">Role</label>
+                        <input class="form-control" id="role">
                     </div>
                     <div class="form-group">
-                        <label for="startYear">Start Date (MM/DD/YYYY)</label>
-                        <input class="form-control" id="startYear">
+                        <label for="startDate">Start Date (MM/DD/YYYY)</label>
+                        <input class="form-control" id="startDate">
                     </div>
                     <div class="form-group">
-                        <label for="endYear">Monthly Rate</label>
-                        <input class="form-control" id="endYear">
+                        <label for="monthlyRate">Monthly Rate</label>
+                        <input class="form-control" id="monthlyRate">
                     </div>
                     <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                 </form>
             </div>
         </div>
  
-   
+   <script src="assets/javascript/employeeData.js"></script>
 </body>
 </html>
