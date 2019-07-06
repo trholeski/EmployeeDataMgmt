@@ -1,1 +1,69 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Employee Tracker</title>
+   
+</head>
+<body>
+<div id="pageContent">
+<div class="jumbotron jumbotron-fluid" id="background">
+  <div class="container">
+    <h1 class="display-4">Employee Data Management</h1>
+    <p class="lead">A Comprehensice Directory of Billable Hours</p>
+  </div>
+</div>
+<table class="table table-sm" id=schedule>Current Employees 
+  <thead>
+    <tr>
+      <th scope="col">Employee Name</th>
+      <th scope="col">Role</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Months Worked</th>
+      <th scope="col">Monthly Rate ($)</th>
+      <th scope="col">Total Billed ($)</th>
+    </tr>
+  </thead>
+  <br>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+ <br>
+  </tbody>
+</table>  
+            <div class="card" id="searchForm">
+                     <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="searchTerm">Employee Name</label>
+                        <input class="form-control" id="searchTerm">
+                    </div>
+                    <div class="form-group">
+                        <label for="recordsNumber">Role</label>
+                        <input class="form-control" id="recordsNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="startYear">Start Date (MM/DD/YYYY)</label>
+                        <input class="form-control" id="startYear">
+                    </div>
+                    <div class="form-group">
+                        <label for="endYear">Monthly Rate</label>
+                        <input class="form-control" id="endYear">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+ 
+   
+</body>
+</html>

@@ -1,16 +1,31 @@
-/* div{
-    border: .5px solid black;
-} */
-#parentContainer{
-    width: 100%;
-    align: center;
 
-}
-#numRecordsLabel {
-    display: inline-block;
-}
+        #pageContent {
+            width: 80%;
+            margin: 1rem auto;
+        }
 
-/* form {
-    width: 80%;
-    align: center;
-}; */
+         
+        .pageLink {
+            padding: 1rem;
+            text-decoration: underline;
+        }
+        .currentPageLink {
+            padding: 1rem;
+            text-decoration: underline;
+            font-weight: bold;
+
+        }
+      
+       #background {
+        background-color: rgb(17, 1, 1)
+       }
+   
+       .display-4 {
+           color: beige;
+           text-align: center
+
+       }
+       .lead {
+           color: beige;
+           text-align: center
+       }
